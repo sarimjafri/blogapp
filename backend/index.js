@@ -27,9 +27,9 @@ app.use(function (req, res, next) {
   next();
 });
 
-// app.get("/test",(req,res)=>{
-//   res.status(200).send("it works!")
-// })
+app.get("/test",(req,res)=>{
+  res.status(200).send("it works!")
+})
 
 // app.get("/auth-state", (req, res) => {
 //   const authState = req.auth;
