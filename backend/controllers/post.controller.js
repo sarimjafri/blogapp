@@ -1,3 +1,6 @@
+import dotenv from "dotenv"
+dotenv.config();
+
 import ImageKit from "imagekit";
 import Post from "../models/post.model.js";
 import User from "../models/user.model.js";
@@ -180,6 +183,7 @@ const imagekit = new ImageKit({
   urlEndpoint: process.env.IK_URL_ENDPOINT,
   publicKey: process.env.IK_PUBLIC_KEY,
   privateKey: process.env.IK_PRIVATE_KEY,
+  debugMode: true,
 });
 
 export const uploadAuth = async (req, res) => {

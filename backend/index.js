@@ -1,3 +1,7 @@
+import dotenv from "dotenv";
+dotenv.config({ path: "./.env" });
+
+
 import express from "express";
 import connectDB from "./lib/connectDB.js";
 import userRouter from "./routes/user.route.js";
@@ -6,14 +10,8 @@ import commentRouter from "./routes/comment.route.js";
 import webhookRouter from "./routes/webhook.route.js";
 import { clerkMiddleware, requireAuth } from "@clerk/express";
 import cors from "cors";
-import dotenv from "dotenv";
 
 const app = express();
-dotenv.config();
-
-console.log("IK_PUBLIC_KEY:", process.env.IK_PUBLIC_KEY);
-console.log("IK_PRIVATE_KEY:", process.env.IK_PRIVATE_KEY);
-console.log("IK_URL_ENDPOINT:", process.env.IK_URL_ENDPOINT);
 
 app.use(cors(process.env.CLIENT_URL));
 app.use(clerkMiddleware());
